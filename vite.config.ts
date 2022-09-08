@@ -18,20 +18,10 @@ export default defineConfig({
     vue(),
     AutoImport({
       imports: ["vue"],
-      resolvers: [
-        ElementPlusResolver(),
-        IconsResolver({
-          prefix: "Icon",
-        }),
-      ],
+      resolvers: [ElementPlusResolver(), IconsResolver()],
     }),
     Components({
-      resolvers: [
-        ElementPlusResolver(),
-        IconsResolver({
-          enabledCollections: ["ep"],
-        }),
-      ],
+      resolvers: [ElementPlusResolver(), IconsResolver()],
     }),
     Icons({
       autoInstall: true,
