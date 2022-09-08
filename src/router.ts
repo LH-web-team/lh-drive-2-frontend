@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import routes from "virtual:generated-pages";
-import { useAuthStore, AuthStatus } from "./stores/auth";
+import { useAuthStore } from "./stores/auth";
 
 const router = createRouter({
   history: createWebHistory("/"),
@@ -8,9 +8,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from) => {
-  const authStore = useAuthStore();
-  console.log(to.fullPath);
-  if (to.meta.requiresAuth && authStore.authState != AuthStatus.AUTHED) {
+  if (to.meta.requiresAuth) {
     return {
       path: "/login/",
       query: { redirectTo: to.fullPath },
