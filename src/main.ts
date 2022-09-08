@@ -1,7 +1,6 @@
 import { createApp } from "vue";
 import App from "~/App.vue";
 import "./index.css";
-import "bulma/css/bulma.css";
 
 const app = createApp(App);
 
@@ -15,5 +14,10 @@ app.use(pinia);
 // router
 import { router } from "~/router";
 app.use(router);
+
+// element plus
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
+app.use(ElementPlus);
 
 app.mount("#app");
