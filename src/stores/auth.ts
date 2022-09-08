@@ -1,19 +1,9 @@
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import axios from "~/utils/axios";
 interface Token {
   refresh: string;
   access: string;
-}
-
-interface Access {
-  access: string;
-}
-
-export enum AuthStatus {
-  UNAUTHED,
-  AUTHED,
-  TIMEOUT,
 }
 
 export const useAuthStore = defineStore(
@@ -23,11 +13,6 @@ export const useAuthStore = defineStore(
      * JWT token for authentication
      */
     const token = ref<Token | null>(null);
-
-    /**
-     * The time that the user logged in, time value in milliseconds
-     */
-    const loginTime = ref<number | null>(null);
 
     /**
      * attempt login to the api server
@@ -42,9 +27,6 @@ export const useAuthStore = defineStore(
           data: { username, password },
         })
       ).data as Token;
-
-      // using now() as Date object cannot persist
-      loginTime.value = Date.now();
     }
 
     /**
@@ -58,7 +40,6 @@ export const useAuthStore = defineStore(
         data: { refresh: token.value!.refresh },
       });
       token.value!.access = resp.data.access;
-      loginTime.value = Date.now();
     }
 
     /**
@@ -66,31 +47,10 @@ export const useAuthStore = defineStore(
      */
     function logout() {
       token.value = null;
-      loginTime.value = null;
     }
-
-    /**
-     * The current authentication state
-     */
-    const authState = computed(() => {
-      if (token.value == null) return AuthStatus.UNAUTHED;
-      if (loginTime.value == null) return AuthStatus.UNAUTHED;
-
-      const now = Date.now();
-
-      // refresh token timeout for 24 hour
-      if (getHourDiff(loginTime.value, now) >= 24) return AuthStatus.UNAUTHED;
-
-      // access token timeout for 30 mins
-      if (getMinDiff(loginTime.value, now) > 25) return AuthStatus.TIMEOUT;
-
-      return AuthStatus.AUTHED;
-    });
 
     return {
       token,
-      loginTime,
-      authState,
       loginWith,
       refreshToken,
       logout,
@@ -100,13 +60,3 @@ export const useAuthStore = defineStore(
     persist: true,
   }
 );
-
-export const getMinDiff = (s: number, e: number) => {
-  const msInMinute = 60 * 1000;
-  return Math.round(Math.abs(e - s) / msInMinute);
-};
-
-export const getHourDiff = (s: number, e: number) => {
-  const msInHour = 60 * 60 * 1000;
-  return Math.round(Math.abs(e - s) / msInHour);
-};

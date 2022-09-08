@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { onMounted, Ref, ref } from "vue";
-import { AuthStatus, useAuthStore } from "~/stores/auth";
+import { useAuthStore } from "~/stores/auth";
 import { useRoute, useRouter } from "vue-router";
 
 const authStore = useAuthStore();
@@ -10,16 +10,14 @@ const route = useRoute();
 const login = async () => {
   await authStore.loginWith(username.value, password.value);
   await router.push(
-    route.query["redirectTo"] ? (route.query["redirectTo"] as string) : "/pages/home"
+    route.query["redirectTo"] ? (route.query["redirectTo"] as string) : "/home"
   );
 };
 
 const redirectIfLoggedIn = async () => {
-  let authState: AuthStatus = authStore.authState;
-  if (authState == AuthStatus.UNAUTHED) return;
-  if (authState == AuthStatus.TIMEOUT) await authStore.refreshToken();
+  if (!authStore.token) return;
   await router.push(
-    route.query["redirectTo"] ? (route.query["redirectTo"] as string) : "/pages/home"
+    route.query["redirectTo"] ? (route.query["redirectTo"] as string) : "/home"
   );
 };
 
