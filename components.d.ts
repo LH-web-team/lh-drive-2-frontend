@@ -7,8 +7,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ActionBar: typeof import('./src/components/file/ActionBar.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
+    ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
+    ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElFooter: typeof import('element-plus/es')['ElFooter']
@@ -20,8 +23,15 @@ declare module '@vue/runtime-core' {
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElProgress: typeof import('element-plus/es')['ElProgress']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    FilePath: typeof import('./src/components/file/FilePath.vue')['default']
     IconMenu: typeof import('~icons/ic/on-menu')['default']
     IcOutlineFolder: typeof import('~icons/ic/outline-folder')['default']
+    IIcBaselinePlus: typeof import('~icons/ic/baseline-plus')['default']
+    IIcOutlineDelete: typeof import('~icons/ic/outline-delete')['default']
+    IIcOutlineFileUpload: typeof import('~icons/ic/outline-file-upload')['default']
+    IIcOutlineFolder: typeof import('~icons/ic/outline-folder')['default']
+    IIcOutlineShare: typeof import('~icons/ic/outline-share')['default']
+    IMaterialSymbolsUploadRounded: typeof import('~icons/material-symbols/upload-rounded')['default']
     IRiDeleteBin5Line: typeof import('~icons/ri/delete-bin5-line')['default']
     IRiFolder2Line: typeof import('~icons/ri/folder2-line')['default']
     IRiShareLine: typeof import('~icons/ri/share-line')['default']

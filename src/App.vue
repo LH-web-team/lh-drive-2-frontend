@@ -9,7 +9,7 @@ const route = useRoute();
   <div class="w-screen h-screen flex flex-col">
     <nav-header></nav-header>
     <div class="flex flex-1">
-      <nav-drawer class="w-64"></nav-drawer>
+      <nav-drawer class="w-56"></nav-drawer>
       <router-view></router-view>
     </div>
   </div>
