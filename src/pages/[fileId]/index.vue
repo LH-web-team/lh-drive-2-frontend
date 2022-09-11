@@ -1,10 +1,11 @@
 <script lang="ts" setup>
 const selectedFiles = ref<FileBase[]>([]);
-const showDetail = ref<boolean>(true);
+const showDetail = ref<boolean>(false);
 
 const selectFiles = (v: FileBase[]) => {
   selectedFiles.value = v;
-  showDetail.value = false;
+  console.log(v);
+  if (v.length != 1) showDetail.value = false;
 };
 </script>
 <template>

@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { ElTable } from "element-plus";
-import { ref } from "vue";
+
+const emit = defineEmits<{
+  (e: "update:selectedFiles", v: FileBase[]): void;
+}>();
+
 const files: FileBase[] = [];
 for (let i = 0; i < 20; i++)
   files.push({
@@ -10,6 +14,11 @@ for (let i = 0; i < 20; i++)
     shared: Math.random() < 0.5,
   });
 
+const selectedFiles = ref<FileBase[]>([]);
+const onSelctionChange = (selectedRows: FileBase[]) => {
+  selectedFiles.value = selectedRows;
+};
+
 const fileTableRef = ref<InstanceType<typeof ElTable>>();
 const toggleSelection = (row: FileBase, column: any) => {
   if (column.no != 0) {
@@ -17,13 +26,7 @@ const toggleSelection = (row: FileBase, column: any) => {
   }
   // @ts-expect-error
   fileTableRef.value?.toggleRowSelection(row, undefined);
-};
-
-const emit = defineEmits<{
-  (e: "update:selectedFiles", v: FileBase[]): void;
-}>();
-const onSelctionChange = (selectedRows: FileBase[]) => {
-  emit("update:selectedFiles", selectedRows);
+  emit("update:selectedFiles", selectedFiles.value);
 };
 </script>
 

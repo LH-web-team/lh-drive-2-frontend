@@ -25,14 +25,14 @@ const items: { label: string; field: (f: FileBase) => string }[] = [
     <div class="flex justify-between items-center">
       <h2 class="flex gap-3 items-center">
         <i-ri-file-3-line />
-        <span class="font-semibold">test.xlsx</span>
+        <span class="font-semibold">{{ file.name }}</span>
       </h2>
       <el-button text circle @click="emit('update:visible', false)">
         <el-icon :size="18"><i-ic-baseline-close /></el-icon>
       </el-button>
     </div>
     <div v-for="item in items" class="flex flex-col mt-3">
-      <span class="font-semibold text-sm text-gray-700">{{ item.label }}</span>
+      <span class="font-semibold text-sm text-gray-600">{{ item.label }}</span>
       <span>{{ item.field(file) }}</span>
     </div>
   </div>
