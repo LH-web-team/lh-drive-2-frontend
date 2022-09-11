@@ -17,13 +17,16 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      imports: ["vue"],
-      resolvers: [ElementPlusResolver(), IconsResolver()],
+      imports: ["vue", "vue-router"],
+      resolvers: [ElementPlusResolver()],
+      dts: "src/auto-imports.d.ts",
     }),
     Components({
       resolvers: [ElementPlusResolver(), IconsResolver()],
+      dts: "src/components.d.ts",
     }),
     Icons({
+      compiler: "vue3",
       autoInstall: true,
     }),
     Pages({
