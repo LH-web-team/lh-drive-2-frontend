@@ -61,7 +61,7 @@ function getRandomArbitrary(min: number, max: number) {
     </el-table-column>
     <template #empty>
       <template v-if="files === undefined">
-        <el-skeleton class="w-full px-3 mt-6" v-for="i in 20">
+        <el-skeleton class="w-full px-3 mt-6" v-for="_ in 20" animated>
           <template #template>
             <div class="grid grid-cols-4 gap-5 w-full pl-12">
               <el-skeleton-item
