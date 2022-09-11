@@ -1,13 +1,13 @@
 <script lang="ts" setup></script>
 
 <template>
-  <el-menu default-active="1" class="bg-grey-50 flex flex-col">
+  <el-menu default-active="1" class="bg-grey-50 flex flex-col h-full w-full">
     <el-menu-item index="1">
       <el-icon><i-ri-folder-2-line /></el-icon>
       <span class="">My Files</span>
     </el-menu-item>
     <el-menu-item index="2">
-      <el-icon><i-ri-share-line /></el-icon>
+      <el-icon><i-ic-outline-people-alt /></el-icon>
       <span class="">Shared Files</span>
     </el-menu-item>
     <el-menu-item index="3">

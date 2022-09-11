@@ -6,13 +6,19 @@ const route = useRoute();
 </script>
 
 <template>
-  <div class="w-screen h-screen flex flex-col">
-    <nav-header></nav-header>
-    <div class="flex flex-1">
-      <nav-drawer class="w-56"></nav-drawer>
-      <router-view></router-view>
-    </div>
-  </div>
+  <el-container class="h-screen w-screen">
+    <el-header class="!h-14">
+      <nav-header></nav-header>
+    </el-header>
+    <el-container>
+      <el-aside class="!w-56">
+        <nav-drawer></nav-drawer>
+      </el-aside>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <style></style>

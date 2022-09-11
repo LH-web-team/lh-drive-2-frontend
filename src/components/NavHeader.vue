@@ -4,7 +4,7 @@ const handleSelect = () => {};
 </script>
 
 <template>
-  <div class="h-14 !bg-blue-500 flex p-3 items-center">
+  <div class="!bg-blue-500 flex p-3 items-center h-full w-full">
     <img :src="logoUrl" class="h-full w-auto" />
     <div class="flex-grow"></div>
     <span class="text-white font-semibold mr-3">Testing Acc</span>
