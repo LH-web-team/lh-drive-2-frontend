@@ -5,7 +5,7 @@ import { random } from "lodash";
 import moment from "moment";
 import { ref } from "vue";
 const files: Partial<FileBase>[] = [];
-for (let i = 0; i < 10; i++)
+for (let i = 0; i < 20; i++)
   files.push({
     name: "test.xlsx",
     updated: "2011-10-05",
@@ -35,7 +35,7 @@ const onSelctionChange = (selectedRows: Partial<FileBase>[]) => {
     @row-click="toggleSelection"
     @selection-change="onSelctionChange"
   >
-    <el-table-column type="selection" width="55" />
+    <el-table-column type="selection" width="55" class-name="!pl-3" />
     <el-table-column prop="name" label="Name" sortable />
     <el-table-column
       prop="updated"

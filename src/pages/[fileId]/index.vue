@@ -2,13 +2,14 @@
 const selectedFiles = ref<Partial<FileBase>[]>([]);
 </script>
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col h-full">
     <action-bar :selected-files="selectedFiles"></action-bar>
     <hr />
-    <div class="px-6 py-3 mt-5">
-      <file-path></file-path>
-      <hr />
-      <file-table @update:selected-files="(v) => (selectedFiles = v)"></file-table>
-    </div>
+    <file-path class="mx-2 py-1"></file-path>
+    <hr />
+    <file-table
+      class="h-full"
+      @update:selected-files="(v) => (selectedFiles = v)"
+    ></file-table>
   </div>
 </template>

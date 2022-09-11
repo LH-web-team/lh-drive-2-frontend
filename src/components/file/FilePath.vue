@@ -4,7 +4,7 @@ const path = ["My Files", "Folder A", "Folder B", "Folder C"];
 
 <template>
   <el-breadcrumb separator="/">
-    <el-breadcrumb-item v-for="folder in path">
+    <el-breadcrumb-item v-for="(folder, i) in path">
       <el-button size="large" text>{{ folder }}</el-button>
     </el-breadcrumb-item>
   </el-breadcrumb>

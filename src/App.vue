@@ -6,11 +6,11 @@ const route = useRoute();
 </script>
 
 <template>
-  <el-container class="h-screen w-screen">
+  <el-container class="h-screen overflow-hidden">
     <el-header class="!h-14">
       <nav-header></nav-header>
     </el-header>
-    <el-container>
+    <el-container style="height: calc(100vh - 3.5rem)">
       <el-aside class="!w-56">
         <nav-drawer></nav-drawer>
       </el-aside>

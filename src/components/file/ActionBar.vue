@@ -52,11 +52,12 @@ const fileActions = [
     icon: "ic:baseline-drive-file-rename-outline",
     text: "Rename",
     action: () => {},
+    condition: () => props.selectedFiles.length == 1,
   },
 ];
 </script>
 <template>
-  <div class="h-14 flex px-6 py-3 w-full">
+  <div class="h-12 flex px-6 py-2 w-full">
     <template v-if="selectedFiles.length == 0">
       <el-button
         v-for="(action, i) in normalActions"
@@ -70,12 +71,18 @@ const fileActions = [
       </el-button>
     </template>
     <template v-else>
-      <el-button v-for="action in fileActions" @click="action.action()" text>
-        <el-icon :size="20" class="align-middle">
-          <Icon :icon="action.icon"></Icon>
-        </el-icon>
-        <span class="font-semibold align-middle">{{ action.text }}</span>
-      </el-button>
+      <template v-for="action in fileActions">
+        <el-button
+          v-if="!action.condition || action.condition()"
+          @click="action.action()"
+          text
+        >
+          <el-icon :size="20" class="align-middle">
+            <Icon :icon="action.icon"></Icon>
+          </el-icon>
+          <span class="font-semibold align-middle">{{ action.text }}</span>
+        </el-button>
+      </template>
     </template>
     <div class="flex-grow"></div>
     <el-button text>
