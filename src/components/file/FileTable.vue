@@ -11,7 +11,10 @@ for (let i = 0; i < 20; i++)
   });
 
 const fileTableRef = ref<InstanceType<typeof ElTable>>();
-const toggleSelection = (row: FileBase) => {
+const toggleSelection = (row: FileBase, column: any) => {
+  if (column.no != 0) {
+    fileTableRef.value?.clearSelection();
+  }
   // @ts-expect-error
   fileTableRef.value?.toggleRowSelection(row, undefined);
 };
@@ -28,10 +31,10 @@ const onSelctionChange = (selectedRows: FileBase[]) => {
   <el-table
     ref="fileTableRef"
     :data="files"
-    @row-click="toggleSelection"
+    @cell-click="toggleSelection"
     @selection-change="onSelctionChange"
   >
-    <el-table-column type="selection" width="55" class-name="!pl-3" />
+    <el-table-column type="selection" width="60" class-name="!pl-3" />
     <el-table-column prop="name" label="Name" sortable />
     <el-table-column
       prop="updated"
