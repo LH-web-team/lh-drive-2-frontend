@@ -34,28 +34,11 @@ const onSelctionChange = (selectedRows: FileBase[]) => {
     @cell-click="toggleSelection"
     @selection-change="onSelctionChange"
   >
-    <el-table-column type="selection" width="60" class-name="!pl-3" />
+    <el-table-column type="selection" width="55" class-name="!pl-3" />
     <el-table-column prop="name" label="Name" sortable />
-    <el-table-column
-      prop="updated"
-      label="Date"
-      sortable
-      class-name="text-xs"
-      label-class-name="text-base"
-    />
-    <el-table-column
-      prop="size"
-      label="File size"
-      sortable
-      class-name="text-xs"
-      label-class-name="text-base"
-    />
-    <el-table-column
-      label="Share"
-      sortable
-      class-name="text-xs"
-      label-class-name="text-base"
-    >
+    <el-table-column prop="updated" label="Date" sortable />
+    <el-table-column prop="size" label="File size" sortable />
+    <el-table-column label="Share" sortable>
       <template #default="scope">
         <template v-if="scope.row.shared">
           <el-icon><i-ic-outline-people-alt /></el-icon> Shared
