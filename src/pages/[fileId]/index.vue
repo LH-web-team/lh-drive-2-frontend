@@ -7,6 +7,7 @@ const selectedFiles = ref<Partial<FileBase>[]>([]);
     <hr />
     <div class="px-6 py-3 mt-5">
       <file-path></file-path>
+      <hr />
       <file-table @update:selected-files="(v) => (selectedFiles = v)"></file-table>
     </div>
   </div>

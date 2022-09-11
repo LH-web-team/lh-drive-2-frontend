@@ -31,16 +31,15 @@ const onSelctionChange = (selectedRows: Partial<FileBase>[]) => {
   <el-table
     ref="fileTableRef"
     :data="files"
-    class="w-full shadow border m-3 mr-10"
+    class="w-full"
     @row-click="toggleSelection"
     @selection-change="onSelctionChange"
   >
     <el-table-column type="selection" width="55" />
-    <el-table-column prop="name" label="Name" width="300px" sortable />
+    <el-table-column prop="name" label="Name" sortable />
     <el-table-column
       prop="updated"
       label="Date"
-      width="150px"
       sortable
       class-name="text-xs"
       label-class-name="text-base"
@@ -48,14 +47,12 @@ const onSelctionChange = (selectedRows: Partial<FileBase>[]) => {
     <el-table-column
       prop="size"
       label="File size"
-      width="150px"
       sortable
       class-name="text-xs"
       label-class-name="text-base"
     />
     <el-table-column
       label="Share"
-      width="150px"
       sortable
       class-name="text-xs"
       label-class-name="text-base"

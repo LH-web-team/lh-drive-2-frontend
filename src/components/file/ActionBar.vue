@@ -29,27 +29,27 @@ const fileActions = [
     action: () => {},
   },
   {
-    icon: "ri:share-box-line",
+    icon: "ic:baseline-download",
     text: "Download",
     action: () => {},
   },
   {
-    icon: "ri:share-box-line",
+    icon: "ri:delete-bin-5-line",
     text: "Remove",
     action: () => {},
   },
   {
-    icon: "ri:share-box-line",
+    icon: "ic:baseline-content-copy",
     text: "Copy",
     action: () => {},
   },
   {
-    icon: "ri:share-box-line",
+    icon: "ic:outline-drive-file-move",
     text: "Move",
     action: () => {},
   },
   {
-    icon: "ri:share-box-line",
+    icon: "ic:baseline-drive-file-rename-outline",
     text: "Rename",
     action: () => {},
   },
@@ -77,5 +77,12 @@ const fileActions = [
         <span class="font-semibold align-middle">{{ action.text }}</span>
       </el-button>
     </template>
+    <div class="flex-grow"></div>
+    <el-button text>
+      <el-icon :size="20" class="align-middle">
+        <i-ic-outline-info></i-ic-outline-info>
+      </el-icon>
+      <span class="font-semibold align-middle">Info</span>
+    </el-button>
   </div>
 </template>
