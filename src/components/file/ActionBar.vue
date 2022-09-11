@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 import { Icon } from "@iconify/vue";
 const props = defineProps<{
-  selectedFiles: Partial<FileBase>[];
+  selectedFiles: FileBase[];
+}>();
+
+const emit = defineEmits<{
+  (e: "toggleDetail"): void;
 }>();
 
 const normalActions = [
@@ -85,7 +89,7 @@ const fileActions = [
       </template>
     </template>
     <div class="flex-grow"></div>
-    <el-button text>
+    <el-button text @click="emit('toggleDetail')">
       <el-icon :size="20" class="align-middle">
         <i-ic-outline-info></i-ic-outline-info>
       </el-icon>

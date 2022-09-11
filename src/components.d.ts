@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ActionBar: typeof import('./components/file/ActionBar.vue')['default']
+    DetailPane: typeof import('./components/file/DetailPane.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
@@ -24,6 +25,7 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     FilePath: typeof import('./components/file/FilePath.vue')['default']
     FileTable: typeof import('./components/file/FileTable.vue')['default']
+    IIcBaselineClose: typeof import('~icons/ic/baseline-close')['default']
     IIcBaselinePlus: typeof import('~icons/ic/baseline-plus')['default']
     IIcOutlineDeleteOutline: typeof import('~icons/ic/outline-delete-outline')['default']
     IIcOutlineFileUpload: typeof import('~icons/ic/outline-file-upload')['default']
@@ -31,6 +33,7 @@ declare module '@vue/runtime-core' {
     IIcOutlineInfo: typeof import('~icons/ic/outline-info')['default']
     IIcOutlinePeopleAlt: typeof import('~icons/ic/outline-people-alt')['default']
     IRiDeleteBin5Line: typeof import('~icons/ri/delete-bin5-line')['default']
+    IRiFile3Line: typeof import('~icons/ri/file3-line')['default']
     IRiFolder2Line: typeof import('~icons/ri/folder2-line')['default']
     IRiShareBoxLine: typeof import('~icons/ri/share-box-line')['default']
     NavDrawer: typeof import('./components/NavDrawer.vue')['default']

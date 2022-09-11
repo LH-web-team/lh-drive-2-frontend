@@ -1,8 +1,8 @@
 interface FileBase {
-  created: string;
+  // created: string;
   updated: string;
   name: string;
-  uuid: string;
+  // uuid: string;
   shared: boolean;
   size: string;
 }

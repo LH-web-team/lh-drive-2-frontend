@@ -1,28 +1,25 @@
 <script lang="ts" setup>
 import { ElTable } from "element-plus";
-import { getRandomInt } from "element-plus/es/utils";
-import { random } from "lodash";
-import moment from "moment";
 import { ref } from "vue";
-const files: Partial<FileBase>[] = [];
+const files: FileBase[] = [];
 for (let i = 0; i < 20; i++)
   files.push({
-    name: "test.xlsx",
+    name: `test${i}.xlsx`,
     updated: "2011-10-05",
     size: "200KB",
     shared: Math.random() < 0.5,
   });
 
 const fileTableRef = ref<InstanceType<typeof ElTable>>();
-const toggleSelection = (row: Partial<FileBase>) => {
+const toggleSelection = (row: FileBase) => {
   // @ts-expect-error
   fileTableRef.value?.toggleRowSelection(row, undefined);
 };
 
 const emit = defineEmits<{
-  (e: "update:selectedFiles", v: Partial<FileBase>[]): void;
+  (e: "update:selectedFiles", v: FileBase[]): void;
 }>();
-const onSelctionChange = (selectedRows: Partial<FileBase>[]) => {
+const onSelctionChange = (selectedRows: FileBase[]) => {
   emit("update:selectedFiles", selectedRows);
 };
 </script>
@@ -31,7 +28,6 @@ const onSelctionChange = (selectedRows: Partial<FileBase>[]) => {
   <el-table
     ref="fileTableRef"
     :data="files"
-    class="w-full"
     @row-click="toggleSelection"
     @selection-change="onSelctionChange"
   >
