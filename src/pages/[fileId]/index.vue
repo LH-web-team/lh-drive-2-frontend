@@ -1,9 +1,4 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-import ActionBar from "~/components/file/ActionBar.vue";
-import FilePath from "~/components/file/FilePath.vue";
-import FileTable from "~/components/file/FileTable.vue";
-
 const selectedFiles = ref<Partial<FileBase>[]>([]);
 </script>
 <template>

@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, Ref, ref } from "vue";
 import { useAuthStore } from "~/stores/auth";
-import { useRoute, useRouter } from "vue-router";
 
 const authStore = useAuthStore();
 const router = useRouter();
@@ -25,8 +23,8 @@ onMounted(() => {
   redirectIfLoggedIn();
 });
 
-const username: Ref<string> = ref("");
-const password: Ref<string> = ref("");
+const username = ref("");
+const password = ref("");
 
 onMounted(() => {
   username.value = "admin";
