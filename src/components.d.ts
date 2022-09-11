@@ -17,6 +17,8 @@ declare module '@vue/runtime-core' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElProgress: typeof import('element-plus/es')['ElProgress']
+    ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
+    ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     FilePath: typeof import('./components/file/FilePath.vue')['default']
     FileTable: typeof import('./components/file/FileTable.vue')['default']
