@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <el-menu default-active="1" class="bg-grey-50 flex flex-col h-full w-full">
+  <el-menu default-active="1" class="bg-grey-50 flex flex-col h-full">
     <el-menu-item index="1">
       <el-icon><i-ri-folder-2-line /></el-icon>
       <span class="">My Files</span>
